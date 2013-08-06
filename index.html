@@ -1,1 +1,458 @@
-hello world
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<title>easyScroll</title>
+
+<style>
+
+*{margin:0;padding:0;text-decoration:none;font-size:12px;}
+body{background:white;padding:10px;}
+img,a{border:none}
+ul,li,ol{list-style-type:none}
+button{padding:5px;margin:0 5px 0 0}
+
+.com{position:relative}
+.com ol{height:12px;width:100%;text-align:center;position:relative;font-size:0;margin:-20px 0 0;z-index:3}
+.com ol li{font-size:0;vertical-align:top;display:inline-block;*display:inline;*zoom:1;margin:0 2px 0 0;width:10px;background:white;border:1px solid #0093D0;border-radius:10px;color:#74A8ED;cursor:pointer;height:10px;text-align:center;}
+.com ol li.on{border-color:white;background:#0093D0}
+.com .next ,.com .pre{outline:none;background:rgba(0,147,208,0.4);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#7f0093D0,endColorstr=#7f0093D0);*zoom:1;border-radius:40px;font-weight:bold;-moz-user-select:none;-wekit-user-select:none;font-weight:bold;text-align:center;cursor:pointer;width:40px;height:40px;line-height:40px;display:block;position:absolute;top:40%;z-index:1000;color:white;font-family:simsun;font-size:30px}
+.com .next{right:0px;}
+.com .next:hover{background:#0093D0;}
+.com .pre{left:0px;}
+.com .pre:hover{background:#0093D0;}
+button{font-size:14px}
+
+#ppt{width:100px;height:130px;overflow-X:hidden;overflow-y:auto;}
+#ppt ul li{width:100px;height:130px;overflow:hidden;vertical-align:bottom}
+
+
+#ppt2,#ppt5{width:330px;height:130px;overflow-X:auto;overflow-y:hidden;}
+#ppt2 ul,#ppt5 ul{width:600px;height:130px}
+#ppt2 ul li,#ppt5 ul li{width:100px;float:left;display:inline;margin:0 10px 0 0;vertical-align:bottom;overflow:hidden}
+#ppt2 .next{right:10px}
+
+#ppt3{float:left;width:100px;height:260px;overflow-X:hidden;overflow-y:auto;}
+#ppt3 ul li{width:100px;height:130px;overflow:hidden}
+
+#ppt4{float:left;display:inline;margin:0 0 0 10px;width:100px;height:260px;overflow-X:hidden;overflow-y:auto;}
+#ppt4 ul li{width:100px;height:130px;overflow:hidden;background:url(http://static9.pplive.cn/pptv/index/v_20130607173848/css/ajax-loader.gif) no-repeat center center}
+
+
+
+.txtlist {height:20px;width: 200px;position:relative;}
+.txtlist ul{height:20px;overflow:hidden}
+.txtlist li{text-indent:1em;width:200px;height:20px;line-height:20px;overflow: hidden;text-align: left;text-overflow: ellipsis;white-space: nowrap;}
+.txtlist li a{color:#333333}
+.txtlist li a:hover{text-decoration:underline;color:blue}
+.txtlist .pre, .txtlist .next {font-family:simsun;position: absolute;right:-30px;top:3px;border: 1px solid #CCCCCC;color: #666666;cursor: pointer;font-size: 11px;font-weight: bold;height: 13px;line-height:13px;overflow: hidden;text-align: center;width: 14px;}
+.txtlist .pre {
+    right:-15px;
+}
+</style>
+</head>
+<body>
+
+
+<div class="txtlist">
+  <ul><li><a href="#">1.圆明园荷花节：赏花时间+赏花指南</a></li><li><a href="#">2.夏日饕餮之旅 上海周边六大海</a></li><li><a href="#">3.年度参评路线：川藏南线</a></li></ul>
+</div>
+<div class="txtlist">
+	<ul><li><a href="#">1.圆明园荷花节：赏花时间+赏花指南</a></li><li><a href="#">2.夏日饕餮之旅 上海周边六大海</a></li><li><a href="#">3.年度参评路线：川藏南线</a></li></ul>
+</div>
+
+
+<br/>
+<div id="ck"></div>
+<p id="sk"><button onclick="gg()">加载</button></p>
+<script>
+	function btn(fn){
+		$("#ppt").Orz('OPEN',fn);
+		$("#ppt2").Orz('OPEN',fn);
+		$("#ppt5").Orz('OPEN',fn);
+	}	
+</script>
+<p style="display:none"><button onclick="btn('auto')">自动</button><button onclick="btn('stop')">停止</button><br/><br/></p>
+<br/>
+<div id="ppt" class="com">
+				<ul>
+					<li><a href="#"><img alt="美图-1" src="http://p10.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U447P1T229D18F7908DT20130624101128.jpg"></a></li>
+					<li><a href="#"><img alt="美图-2" src="http://p2.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U447P1T229D18F7909DT20130624101128.jpg"></a></li>
+					<li><a href="#"><img alt="美图-3" src="http://p1.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U447P1T229D18F7910DT20130624110308.jpg"></a></li>
+				</ul>
+</div>
+
+<div id="ppt5" class="com" style="position:absolute;left:150px;top:130px">
+				<ul>
+					<li><a href="#"><img src="http://p3.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0624/U90P1T229D54F7908DT20130624073928.jpg"></a></li>
+					<li><a href="#"><img src="http://p2.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0624/U305P1T229D55F7908DT20130624082151.jpg"></a></li>
+					<li><a href="#"><img src="http://p7.yokacdn.com/pic/star/topic/2013/U288P1T1D820697F7907DT20130624094717.jpg"></a></li>
+					<li><a href="#"><img src="http://p5.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U424P1T229D30F7908DT20130624082608.jpg"></a></li>
+					<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U242P1T229D28F7908DT20130624110528.jpg"></a></li>
+					<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0621/U288P1T229D35F7910DT20130621154024.jpg"></a></li>
+				</ul>
+</div>
+
+<br/>
+<hr style="clear:both">
+<br/>
+<div id="ppt2" class="com">
+				<ul>
+					<li><a href="#"><img src="http://p3.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0624/U90P1T229D54F7908DT20130624073928.jpg"></a></li>
+					<li><a href="#"><img src="http://p2.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0624/U305P1T229D55F7908DT20130624082151.jpg"></a></li>
+					<li><a href="#"><img src="http://p7.yokacdn.com/pic/star/topic/2013/U288P1T1D820697F7907DT20130624094717.jpg"></a></li>
+					<li><a href="#"><img src="http://p5.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U424P1T229D30F7908DT20130624082608.jpg"></a></li>
+					<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U242P1T229D28F7908DT20130624110528.jpg"></a></li>
+					<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0621/U288P1T229D35F7910DT20130621154024.jpg"></a></li>
+				</ul>
+</div>
+<br/>
+<hr/>
+<br/>
+<div id="ppt3" class="com">
+			<ul>
+				<li><a href="#"><img src="http://p5.yokacdn.com/pic/star/starwear/2013/U288P1T1D820068F7907DT20130621102011.jpg"></a></li>
+				<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0621/U288P1T229D35F7908DT20130621145743.jpg"></a></li>
+				<li><a href="#"><img src="http://p4.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U288P1T229D35F7909DT20130624101800.jpg"></a></li>
+				<li><a href="#"><img src="http://p10.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0624/U424P1T229D47F7908DT20130624083031.jpg"></a></li>	
+			</ul>
+</div>
+
+<div id="ppt4" class="com">
+			<ul>
+				<li><a href="#"><img lazy="http://p9.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0719/U242P1T229D28F7908DT20130719171107.jpg" src="http://static9.pplive.cn/pptv/index/v_201202141528/images/no.gif"></a></li>
+				<li><a href="#"><img lazy="http://p7.yokacdn.com/pic/star/starface/2013/U230P1T1D834060F7907DT20130722093712.jpg" src="no.gif"></a></li>
+				<li><a href="#"><img lazy="http://p6.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0722/U459P1T229D54F7908DT20130722071610.jpg" src="http://static9.pplive.cn/pptv/index/v_201202141528/images/no.gif"></a></li>
+				<li><a href="#"><img lazy="http://p3.yokacdn.com/pic/manual/index/229/201204/201205/idx/2013/0722/U459P1T229D55F7908DT20130722091955.jpg" src="http://static9.pplive.cn/pptv/index/v_201202141528/images/no.gif"></a></li>
+				<li><a href="#"><img lazy="http://p5.yokacdn.com/pic/manual/index/229/201204/201204/idx/2013/0722/U355P1T229D30F7908DT20130722082558.jpg" src="http://static9.pplive.cn/pptv/index/v_201202141528/images/no.gif"></a></li>
+				<li><a href="#"><img lazy="http://p9.yokacdn.com/pic/fashion/starwear/2013/U363P1T1D833788F7907DT20130719165937.jpg" src="no.gif"></a></li>
+			</ul>
+</div>
+
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js" type="text/javascript"></script>
+<script>
+var ck=document.getElementById('ck');
+
+(function($,D,undefined){//todo 增加【tab切换头】和 【lazyLoad】功能
+	"use strict";
+	$.fn.wheel = function(t, n) {
+        var r = $.browser.mozilla ? "DOMMouseScroll": "mousewheel",
+		i = function(e) {
+            var t = e.originalEvent,n = {};
+            return "wheelDelta" in t ? n.wheelDelta = Math.round(t.wheelDelta)/120 : "detail" in t && (n.wheelDelta = -t.detail * 40)/120,n
+        };
+        t === "on" ? this.on(r, function(t) {
+            var r = $.extend(t, i(t));n.call(this, t)
+        }) : t === "off" && this.off(r, n)
+    };
+
+	var methods = {
+		_COLLECT:[],
+		addCss:function(){
+			var cssStyle="<style>" +
+				".orz{}"+
+				"</style>";
+			$(cssStyle).appendTo("head");
+		},
+		OPEN:function(prop){//为了使用内部方法stop和auto
+			var mod=methods._COLLECT;
+			//$(this).css('display',"none");
+			for(var i=0,len=mod.length;i<len;i++){
+				if(this[0] == mod[i].$ele[0]){
+					//alert($.data(mod[i],'tp'))
+					mod[i][prop]();
+					//mod.splice(i--,1);
+					//len--;
+				}
+			}
+		}
+	};
+	 $.fn.Orz = function(args){//万一看不懂...看这个 http://leeyee.github.io/blog/2012/12/02/jquery-plugins-authoring/
+		$.fn.Orz.defaults={marquee:false,lazy:false,wheel:false,info:false,vertical:false,button:true,auto:false,effect:"scroll",onMouse:"mouseover",delay:2000,loop:false,nav:false,all:false,thumbs:false,content:"ul>li",title:"h2 a"}
+		var set=args ? $.extend($.fn.Orz.defaults,args):$.fn.Orz.defaults;
+		if(methods[args]){
+			return methods[args].call(this,Array.prototype.slice.call(arguments,1));
+		}else if(typeof args === 'object' || !args){		
+				return this.each(function(){		
+				var Mod=new plugin(set,$(this));
+				Mod.readyCss($(this));
+				Mod.generate($(this));
+				set.auto && Mod.auto();
+				set.marquee && Mod.marquee();
+				set.wheel && Mod.wheel($(this));
+				$.data(Mod,'tp',$(this).offset()['top']);
+				methods['_COLLECT'].push(Mod);
+			});
+		}else{
+			 $.error( '方法-------' +  args + '---------不存在');
+		}
+	 };
+
+
+	 methods.addCss();
+	 function plugin(set,$E){
+		 this.set=set;
+		 this.idx=0;
+		 this.from=0;
+		 this.$ele=$E;
+		 this.timer=null;
+		 this.$lis=$E.find(set.content);
+		 this.len=this.$lis.length;//设置了 set.all后 大小会重新计算！
+		 this.effect = this.EFFECT[set.effect]||function(){};
+		 this.isMoving=false;
+	 };
+	 plugin.prototype={
+		readyCss:function($E){
+				var set=this.set;
+				var wh=set.vertical?this.$lis.eq(0).outerHeight(true):this.$lis.eq(0).outerWidth(true);
+				var WH=set.vertical?$E.height():$E.width();
+				this.viewed=Math.ceil(WH/wh);//可见范围内有几个
+				this.num=this.len;//在this.len改变前，保存原始个数；
+				this.fix(set);
+			switch(set.effect){
+				case "scroll":
+					var l,tmp;
+					if(set.all){this.WH=WH;this.len=Math.ceil(wh*this.num/this.WH)}else{this.WH=wh}//重新计算this.len
+					this.fly=set.vertical?'scrollTop':'scrollLeft';
+					this.$ul=$E.children();
+					this.css={};
+					if(set.loop){//无缝的时候,只复制可见范围内的元素
+						tmp=document.createDocumentFragment();
+						for(var i=0;i<this.viewed;i++){
+							this.$lis.eq(i).clone().appendTo(tmp);
+						}
+						this.$ul.append(tmp);
+					};
+					l=(set.loop&&!set.vertical)?this.WH*this.len+(this.viewed*wh):this.WH*this.len;//loop需要的宽度；垂直的不需要；若css里写width:99999px这步就不用算了
+					if(set.vertical){l=false}
+					this.$ul.css({width:l||'100%',height:'100%'}).wrap("<div style='overflow:hidden;height:100%;width:100%'></div>").children().css({overflow:'hidden',float:set.vertical?'':'left'});
+					this.lay=this.$ul.parent();//获取用来滚的临时div
+					break;
+				case "fade":
+					this.$lis.css({position:"absolute",left:0,top:0}).eq(0).css("zIndex","2").parent().css({height:'100%',overflow:'hidden'});
+				default:break;
+			}//switch
+			if(set.lazy){//还没做好
+				this.$imgs=this.$ul.find('img');
+				for(var i=0;i<this.viewed;i++){
+					this.$imgs.eq(i).attr('src',this.$imgs.eq(i).attr('lazy')).removeAttr('lazy');//
+				}
+			}
+		},
+		wheel:function($E){
+			var that=this;
+			$E.wheel("on",function(e){
+				that.idx+=e.wheelDelta>0?-1:1;
+				if(that.idx<0||that.idx>=that.len){that.idx=0}
+				e.preventDefault();
+				that.start(that.idx);
+
+			});
+		},
+		generate:function($E){
+			var that=this,set=that.set;
+			if(set.button && this.len>1){
+				var $ol=$("<ol></ol>").appendTo($E),str='';
+				for(var i=0;i<that.len;i++){str+="<li>"+(i+1)+"</li>";}//设置了set.all后this.len会有不同个数
+				$ol[0].innerHTML=str;
+				that.olis=$ol[0].getElementsByTagName('li');
+				that.olis[0].className="on";
+				$E.on(set.onMouse,"ol li", function() {
+					that.stop();
+					that.start($(this).index());
+				}).on("mouseout","ol li",function(){
+					set.auto && that.auto();	
+				})				
+			}
+			$E.on('mouseover',function(){
+				that.stop();
+			}).on('mouseout',function(){
+				set.auto && that.auto();
+			});
+			if(set.nav && this.len>1){
+				$("<a href='javascript:void(0)' onselectstart='return false;' class='pre'><</a><a href='javascript:void(0)' onselectstart='return false' class='next'>></a>").appendTo($E);
+				$E.on("click",".pre",function(){
+					that.nav(that.idx--);
+					return false;
+				}).on("click",".next",function(){
+					that.nav(that.idx++);
+					return false;
+				})
+			}
+			if(set.info){
+				$("<strong style='font-size:16px;position:absolute;right:0;top:0;padding:3px 10px;background:#0093D0;color:white;z-index:4'></strong>").html("<b>"+this.viewed+"</b>/"+this.num).appendTo($E);
+				this.$infoNum=$E.find("b").get(0);
+			}
+			if(set.marquee){		
+				$E.on('mouseover',function(){that.stop();}).on('mouseleave',function(){that.marquee();})
+			}
+			if(set.title){//tab的头；还没做好～
+				$E.on("click",set.title,function(){
+					that.start($(this).index());
+				});
+			}
+		},
+		start:function(now){
+			this.idx=now;
+			if(this.idx!=this.from && !this.isMoving){		
+					this.effect(this);
+					this.set.info && this.EFFECT['__info'](this);
+					this.reset();
+			}
+		},
+		nav:function(i){
+			if( (!this.set.loop && !this.set.all) && (this.idx>(this.num-this.viewed))){//一张一张滚，没有set.loop，没有set.all的情况
+				//this.idx=this.num-this.viewed;//停止移动
+				this.idx=0;//返回头部
+			}
+			if(this.idx<0 || this.idx>=this.len){
+				this.idx=0;
+			}
+			this.start(this.idx);
+		},
+		stop:function(){
+			clearInterval(this.timer);
+		},
+		auto:function(){
+			this.timer=setInterval($.proxy(function(){
+				this.idx=(this.idx >= (this.len-1)) ? 0 : (++this.idx);
+				//this.idx=(this.idx+1)%this.len;//技巧
+				this.start(this.idx);
+			},this),this.set.delay)
+		},
+		marquee:function(){
+			var that=this,lay=this.lay[0],fly=this.fly,end=this.WH*this.len,dis=lay[fly];
+			this.timer=setInterval(function(){
+				dis= dis >=end ? 0:++dis;
+				lay[fly]=dis;
+			},17);
+		},
+		EFFECT:{
+			'scroll':function(e){
+					e.isMoving=true;
+					if(e.set.loop && e.from==e.len-1 && e.idx==0){;//多向前滚一次,然后重置,看起来像循环滚
+						e.css[e.fly]+=this.WH;
+						e.lay.animate(e.css,function(){
+							e.lay[0][e.fly]=0;
+							e.isMoving=false;
+						})
+					}else{
+						e.css[e.fly]=(e.idx*this.WH);
+						e.lay.stop(true,false).animate(e.css,function(){
+							e.isMoving=false;
+						});
+					}
+			},
+			'fade':function(e){
+						e.isMoving=true;
+						e.$lis.eq(e.idx).css("zIndex","1");
+						e.$lis.eq(e.from||0).stop().fadeOut(500,function(){
+							$(this).css({zIndex:0,display:"block"});
+							e.$lis.eq(e.idx).css("zIndex","2");
+							e.isMoving=false;
+						});
+			},
+			'__info':function(e){
+					if(e.set.all){
+						e.$infoNum.innerHTML=(e.idx+1)*e.viewed;
+					}else{
+						e.$infoNum.innerHTML=e.idx+1
+					}
+			}
+		},
+		reset:function(){
+			if(this.set.button){
+				this.olis[this.from].className="";
+				this.olis[this.idx].className="on";
+			}
+			this.from=this.idx;
+		},
+		fix:function(set){//防止奇怪组合....里面全删也没啥关系
+			var that=this;
+			if(set.effect=="fade"){
+				set.loop=false;set.veritcal=false;set.all=false;set.wheel=false;set;
+			}
+			if(set.marquee){
+				set.all=true,set.loop=true,set.auto=false,set.info=false,set.button=false,set.nav=false;set.wheel=false;
+			}
+			if(this.viewed>1 && !set.all){
+				set.info=false;set.button=false;
+			}
+			if(set.lazy){
+				set.loop=false;
+			}
+		}
+	 }
+})(jQuery,document);
+
+$(".txtlist").Orz({
+	button:false,
+	auto:true,
+	loop:true,
+	nav:true
+});
+
+function gg(){
+	$('p').eq(0).css('display','none');
+	$('p').eq(1).css('display','block')
+
+	$("#ppt").Orz({
+		info:true,
+		loop:true
+	});
+	$("#ppt2").Orz({
+		all:true,//删了就是一个一个滚
+		nav:true,
+		info:true,
+		loop:true,//删了就是到头返回，而不是无缝
+		wheel:true
+	});
+
+	$("#ppt3").Orz({vertical:true,nav:true,marquee:true});
+
+	$("#ppt4").Orz({
+		all:true,
+		vertical:true,
+		lazy:true,
+		info:true
+	});
+	$("#ppt5").Orz({
+		nav:true,
+		loop:true
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+var shake = function (e){
+    var style = document.getElementById("sk").style,p = [5, 10, 5, 0, -5, -10, -5, 0],
+        fx = function () {
+            style.marginLeft= p.shift() + 'px';
+            if (p.length <= 0) {
+				style.marginLeft = 0;
+                clearInterval(timerId);
+            };
+        };
+    p = p.concat(p.concat(p));
+    timerId = setInterval(fx, 13);
+    return this;
+};
+$(function(){
+	setTimeout(shake,1000);
+})
+</script>
+</body>
+
+</html>
