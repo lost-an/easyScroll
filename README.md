@@ -1,6 +1,6 @@
-### HTML:
+#### HTML:
 ``` html
-<div class='scroll'>
+<div class='default'>
   <ul>
     <li></li>
     <li></li>
@@ -16,9 +16,9 @@ OR
   </div>
 </div>
 ```
-### JS
+#### javascript
 ``` javascript
-$(".scroll").Orz();
+$(".default").Orz();
 $("#special").Orz({
   wheel:true,
   info:true,
@@ -46,7 +46,7 @@ $("#special").Orz({
 ```
 ### CSS
 ```css
-you can make it on you own
+/* make it on you own */
 ```
 
 ### DEMO
