@@ -9,18 +9,23 @@
 
 OR
  
-<div class='scroll'>
+<div id='special'>
   <div>
     <p></p>
     <p></p>
   </div>
 </div>
 ```
-### javascript:
+### JS
 ``` javascript
 $(".scroll").Orz();
+$("#special").Orz({
+  wheel:true,
+  info:true,
+  loop:true
+});
 ```
-### MORE OPTIONS:
+### OPTIONS:
 ``` javascript
 $(".scroll").Orz({
   marquee:false,
@@ -38,5 +43,11 @@ $(".scroll").Orz({
   all:false,
   content:"ul>li" //'div>p'
 });
-
 ```
+### CSS
+```css
+make it on you own
+```
+
+
+
