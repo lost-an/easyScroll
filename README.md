@@ -1,4 +1,4 @@
-## if you want to scroll something use it
+## if you want to scroll some elements , use it
 
 #### HTML:
 ``` html
@@ -10,8 +10,6 @@
 </div>
 
 OR
-WHAT IS FLIP?
-A jQuery plugin that will scroll easily your elements
 
 <div id='special'>
   <div>
