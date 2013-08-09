@@ -1,4 +1,4 @@
-### HTML
+### HTML:
 ``` html
 <div class='scroll'>
   <ul>
@@ -17,13 +17,11 @@ OR
 </div>
 $(".scroll").Orz({content:div>p})
 ```
-
-### javascript
+### javascript:
 ``` javascript
 $(".scroll").Orz();
 ```
-
-### options
+### MORE OPTIONS:
 ``` javascript
 $(".scroll").Orz({
   marquee:false,
