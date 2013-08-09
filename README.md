@@ -27,7 +27,7 @@ $("#special").Orz({
 ```
 ### OPTIONS:
 ``` javascript
-$(".scroll").Orz({
+{
   marquee:false,
   lazy:false,
   wheel:false,
@@ -42,12 +42,15 @@ $(".scroll").Orz({
   nav:false,
   all:false,
   content:"ul>li" //'div>p'
-});
+}
 ```
 ### CSS
 ```css
-make it on you own
+you can make it on you own
 ```
+
+### DEMO
+xxxxxx
 
 
 
