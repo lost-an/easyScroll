@@ -16,7 +16,7 @@ OR
   </div>
 </div>
 ```
-#### javascript
+#### Javascript
 ``` javascript
 $(".default").Orz();
 $("#special").Orz({
