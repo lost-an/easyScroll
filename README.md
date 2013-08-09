@@ -15,7 +15,6 @@ OR
     <p></p>
   </div>
 </div>
-$(".scroll").Orz({content:div>p})
 ```
 ### javascript:
 ``` javascript
@@ -37,7 +36,7 @@ $(".scroll").Orz({
   loop:false,
   nav:false,
   all:false,
-  content:"ul>li"
+  content:"ul>li" //'div>p'
 });
 
 ```
