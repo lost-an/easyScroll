@@ -1,4 +1,4 @@
-#### title
+
 
 #### HTML:
 ``` html
@@ -10,7 +10,9 @@
 </div>
 
 OR
- 
+WHAT IS FLIP?
+A jQuery plugin that will scroll easily your elements
+
 <div id='special'>
   <div>
     <p></p>
@@ -27,7 +29,7 @@ $("#special").Orz({
   loop:true
 });
 ```
-### OPTIONS:
+### ALL OPTIONS
 ``` javascript
 {
   marquee:false,
