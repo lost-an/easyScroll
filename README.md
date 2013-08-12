@@ -1,4 +1,4 @@
-#### title
+## if you want to scroll some elements , use it
 
 #### HTML:
 ``` html
@@ -10,7 +10,7 @@
 </div>
 
 OR
- 
+
 <div id='special'>
   <div>
     <p></p>
@@ -27,7 +27,7 @@ $("#special").Orz({
   loop:true
 });
 ```
-### OPTIONS:
+### ALL OPTIONS
 ``` javascript
 {
   marquee:false,
