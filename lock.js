@@ -48,15 +48,12 @@
  var lock = {
   show: function(){
    $('pageOverlay').style.visibility = 'visible';
-   var p = getPage(),
-    left = p.left,
-    top = p.top;
+   var p = getPage(),left = p.left,top = p.top;
+   var bb="yuyuyuyuyuuyuu";
    
    // 页面鼠标操作限制
    this.mouse = function(evt){
-    var e = evt || window.event;
-    stopDefault(e);
-    scroll(left, top);
+
    };
    each(['DOMMouseScroll', 'mousewheel', 'scroll', 'contextmenu'], function(o, i) {
      bind(document, o, lock.mouse);
